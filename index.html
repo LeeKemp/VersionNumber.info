@@ -57,6 +57,10 @@
 			<h2>Flash</h2>
 			<table class="table table-striped" >
 				<tr>
+					<td class="span3" >Flash Installed</td>
+					<td id="flashInstalled" ></td>
+				</tr>
+				<tr>
 					<td class="span3" >Flash Version</td>
 					<td id="flashVersion" ></td>
 				</tr>
@@ -165,7 +169,10 @@
 
 			$("#os").html(versionInfo.os);
 
-			$("#flashVersion").html(versionInfo.flashVersion);
+
+			$("#flashInstalled").html(String(versionInfo.flashInstalled));
+			if(versionInfo.flashInstalled)
+				$("#flashVersion").html(versionInfo.flashVersion);
 
 			$("#silverlightVersion").html(versionInfo.silverlightVersion);
 
