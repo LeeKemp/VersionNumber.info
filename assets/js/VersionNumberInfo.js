@@ -20,18 +20,30 @@
 	this.os = BrowserDetect.OS; // parser.os.name;
 	// this.osVersion = parser.os.version;
 	
-	this.flashInstalled = FlashDetect.installed;
-	this.flashVersion = FlashDetect.major + "." + FlashDetect.minor + "." + FlashDetect.revision;
-	
+	try {
+		this.flashInstalled = FlashDetect.installed;
+		this.flashVersion = FlashDetect.major + "." + FlashDetect.minor + "." + FlashDetect.revision;
+	} catch (e)
+	{
+		this.flashInstalled = "No Flash";
+		this.flashVersion = "";
+	}
+
 	try {
 		this.silverlightVersion = GetSilverlightVersion();
 	} catch (e)
 	{
-		this.silverlightVersion = "No Silverlight"
+		this.silverlightVersion = "No Silverlight";
 	}
 	
-	// Populated via the server
-	this.requestIpAddress = myIP(); 
+	try {
+		// Populated via the server
+		this.requestIpAddress = myIP(); 
+	} catch (e)
+	{
+		this.requestIpAddress = "Can not detect IP address";
+	}
+
 	this.requestReferrer = document.referrer; 
 	
 	//

@@ -11,6 +11,7 @@ var BrowserDetect = {
 			|| this.searchVersion(navigator.appVersion)
 			|| "an unknown version";
 		this.OS = this.searchString(this.dataOS) || "an unknown OS";
+		this.device = this.searchString(this.dataDevice) || "an unknown Device";
 	},
 	searchString: function (data) {
 		for (var i=0;i<data.length;i++)	{
@@ -41,7 +42,7 @@ var BrowserDetect = {
 			subString: "Chrome",
 			identity: "Chrome"
 		},
-		{ 	string: navigator.userAgent,
+		{	string: navigator.userAgent,
 			subString: "OmniWeb",
 			versionSearch: "OmniWeb/",
 			identity: "OmniWeb"
@@ -84,7 +85,7 @@ var BrowserDetect = {
 		{
 			string: navigator.userAgent,
 			subString: "MSIE",
-			identity: "Explorer",
+			identity: "IE",
 			versionSearch: "MSIE"
 		},
 		{
@@ -93,7 +94,8 @@ var BrowserDetect = {
 			identity: "Mozilla",
 			versionSearch: "rv"
 		},
-		{ 		// for older Netscapes (4-)
+		{
+			// for older Netscapes (4-)
 			string: navigator.userAgent,
 			subString: "Mozilla",
 			identity: "Netscape",
@@ -112,14 +114,26 @@ var BrowserDetect = {
 			identity: "Mac"
 		},
 		{
-			   string: navigator.userAgent,
-			   subString: "iPhone",
-			   identity: "iPhone/iPod"
-	    },
-		{
 			string: navigator.platform,
 			subString: "Linux",
 			identity: "Linux"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "iOS",
+			identity: "iOS"
+		}
+	],
+	dataDevice : [
+		{
+			string: navigator.platform,
+			subString: "iPad",
+			identity: "iPad"
+		},
+		{
+			string: navigator.platform,
+			subString: "iPhone",
+			identity: "iPhone"
 		}
 	]
 
