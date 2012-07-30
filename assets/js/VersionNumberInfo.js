@@ -23,7 +23,6 @@
 	this.flashInstalled = FlashDetect.installed;
 	this.flashVersion = FlashDetect.major + "." + FlashDetect.minor + "." + FlashDetect.revision;
 	
-	this.silverlightInstalled = Silverlight.isInstalled;
 	this.silverlightVersion = GetSilverlightVersion();
 	
 	// Populated via the server
