@@ -23,7 +23,12 @@
 	this.flashInstalled = FlashDetect.installed;
 	this.flashVersion = FlashDetect.major + "." + FlashDetect.minor + "." + FlashDetect.revision;
 	
-	this.silverlightVersion = GetSilverlightVersion();
+	try {
+		this.silverlightVersion = GetSilverlightVersion();
+	} catch (e)
+	{
+		this.silverlightVersion = "No Silverlight"
+	}
 	
 	// Populated via the server
 	this.requestIpAddress = myIP(); 
